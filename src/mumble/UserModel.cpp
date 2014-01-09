@@ -480,7 +480,6 @@ QVariant UserModel::data(const QModelIndex &idx, int role) const {
 						if (((c == home) || qsLinked.contains(c)) && \
 							(qsLinked.count() > 1)) {
 							QColor qc(g.s.qcShowLinkedColor);
-							//qc.setAlpha(32);
 							return qc;
 						}		
 					}

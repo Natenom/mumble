@@ -246,7 +246,7 @@ void LookConfig::on_qpbSkinFile_clicked(bool) {
 }
 
 void LookConfig::on_qpbShowLinkedColor_clicked(bool) {
-    QColor color = QColorDialog::getColor(g.s.qcShowLinkedColor);
+    QColor color = QColorDialog::getColor(g.s.qcShowLinkedColor, this, tr("Pick background color for linked channels"), QColorDialog::DontUseNativeDialog | QColorDialog::ShowAlphaChannel);
     if (color.isValid()) {
         g.s.qcShowLinkedColor = color;
     }
