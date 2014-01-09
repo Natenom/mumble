@@ -323,6 +323,8 @@ Settings::Settings() {
 	bShowUserCount = false;
 	bChatBarUseSelection = false;
 	bFilterHidesEmptyChannels = true;
+	bShowLinkedColored = true;
+	qcShowLinkedColor = QColor(Qt::yellow);
 	bFilterActive = false;
 
 	wlWindowLayout = LayoutClassic;
@@ -670,6 +672,8 @@ void Settings::load(QSettings* settings_ptr) {
 	SAVELOAD(bShowUserCount, "ui/showusercount");
 	SAVELOAD(bChatBarUseSelection, "ui/chatbaruseselection");
 	SAVELOAD(bFilterHidesEmptyChannels, "ui/filterhidesemptychannels");
+	SAVELOAD(bShowLinkedColored, "ui/showlinkedcolored");
+	SAVELOAD(qcShowLinkedColor, "ui/showlinkedcolor");
 	SAVELOAD(bFilterActive, "ui/filteractive");
 	SAVELOAD(qsImagePath, "ui/imagepath");
 	SAVELOAD(bShowContextMenuInMenuBar, "ui/showcontextmenuinmenubar");
@@ -956,6 +960,8 @@ void Settings::save() {
 	SAVELOAD(bShowUserCount, "ui/showusercount");
 	SAVELOAD(bChatBarUseSelection, "ui/chatbaruseselection");
 	SAVELOAD(bFilterHidesEmptyChannels, "ui/filterhidesemptychannels");
+	SAVELOAD(bShowLinkedColored, "ui/showlinkedcolored");
+	SAVELOAD(qcShowLinkedColor, "ui/showlinkedcolor");
 	SAVELOAD(bFilterActive, "ui/filteractive");
 	SAVELOAD(qsImagePath, "ui/imagepath");
 	SAVELOAD(bShowContextMenuInMenuBar, "ui/showcontextmenuinmenubar");
