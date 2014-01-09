@@ -125,6 +125,11 @@ void AudioInputDialog::load(const Settings &r) {
 	else
 		qrbSNR->setChecked(true);
 
+	if (r.vsOpusOpti == Settings::Music)
+		qrbOpusMusic->setChecked(true);
+	else
+		qrbOpusSpeech->setChecked(true);
+	
 	loadCheckBox(qcbPushWindow, r.bShowPTTButtonWindow);
 	loadCheckBox(qcbPushClick, r.bTxAudioCue);
 	loadSlider(qsQuality, r.iQuality);
@@ -154,6 +159,7 @@ void AudioInputDialog::save() const {
 	s.fVADmin = static_cast<float>(qsTransmitMin->value()) / 32767.0f;
 	s.fVADmax = static_cast<float>(qsTransmitMax->value()) / 32767.0f;
 	s.vsVAD = qrbSNR->isChecked() ? Settings::SignalToNoise : Settings::Amplitude;
+	s.vsOpusOpti = qrbOpusSpeech->isChecked() ? Settings::Speech : Settings::Music;
 	s.iFramesPerPacket = qsFrames->value();
 	s.iFramesPerPacket = (s.iFramesPerPacket == 1) ? 1 : ((s.iFramesPerPacket-1) * 2);
 	s.uiDoublePush = qsDoublePush->value() * 1000;
@@ -195,6 +201,9 @@ bool AudioInputDialog::expert(bool b) {
 	qcbIdleAction->setVisible(b);
 	qlIdle->setVisible(b);
 	qlIdle2->setVisible(b);
+	qlOpusEncoding->setVisible(b);
+	qrbOpusSpeech->setVisible(b);
+	qrbOpusMusic->setVisible(b);
 	return true;
 }
 

@@ -167,6 +167,7 @@ struct Settings {
 	enum ServerShow { ShowPopulated, ShowReachable, ShowAll };
 	enum TalkState { Passive, Talking, Whispering, Shouting };
 	enum IdleAction { Nothing, Deafen, Mute };
+	enum OpusOptimization { Speech, Music };
 	typedef QPair<QList<QSslCertificate>, QSslKey> KeyPair;
 
 	AudioTransmit atTransmit;
@@ -204,6 +205,7 @@ struct Settings {
 	bool bAttenuateOthersOnTalk;
 	bool bAttenuateOthers;
 	int iOutputDelay;
+	OpusOptimization vsOpusOpti;
 
 	QString qsALSAInput, qsALSAOutput;
 	QString qsPulseAudioInput, qsPulseAudioOutput;
