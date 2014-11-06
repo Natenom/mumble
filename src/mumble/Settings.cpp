@@ -268,6 +268,7 @@ Settings::Settings() {
 	iaeIdleAction = Nothing;
 
 	vsVAD = Amplitude;
+	vsOpusOpti = Speech;
 	fVADmin = 0.80f;
 	fVADmax = 0.98f;
 
@@ -562,6 +563,7 @@ void Settings::load(QSettings* settings_ptr) {
 	SAVELOAD(bAttenuateOthersOnTalk, "audio/attenuateothersontalk");
 	SAVELOAD(bAttenuateUsersOnPrioritySpeak, "audio/attenuateusersonpriorityspeak");
 	LOADENUM(vsVAD, "audio/vadsource");
+	LOADENUM(vsOpusOpti, "audio/opusopti");
 	SAVELOAD(fVADmin, "audio/vadmin");
 	SAVELOAD(fVADmax, "audio/vadmax");
 	SAVELOAD(iNoiseSuppress, "audio/noisesupress");
@@ -855,6 +857,7 @@ void Settings::save() {
 	SAVELOAD(bAttenuateOthersOnTalk, "audio/attenuateothersontalk");
 	SAVELOAD(bAttenuateUsersOnPrioritySpeak, "audio/attenuateusersonpriorityspeak");
 	SAVELOAD(vsVAD, "audio/vadsource");
+	SAVELOAD(vsOpusOpti, "audio/opusopti");
 	SAVELOAD(fVADmin, "audio/vadmin");
 	SAVELOAD(fVADmax, "audio/vadmax");
 	SAVELOAD(iNoiseSuppress, "audio/noisesupress");

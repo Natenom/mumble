@@ -587,6 +587,19 @@
       <string>Audio Processing</string>
      </property>
      <layout class="QGridLayout">
+      <item row="1" column="2">
+       <widget class="QLabel" name="qlAmp">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0">
        <widget class="QLabel" name="qliNoise">
         <property name="text">
@@ -664,16 +677,28 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="QLabel" name="qlAmp">
-        <property name="minimumSize">
-         <size>
-          <width>30</width>
-          <height>0</height>
-         </size>
-        </property>
+      <item row="2" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QRadioButton" name="qrbOpusSpeech">
+          <property name="text">
+           <string>Optimize for Speech</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="qrbOpusMusic">
+          <property name="text">
+           <string>Optimize for Music</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="qlOpusEncoding">
         <property name="text">
-         <string/>
+         <string>Opus Encoding</string>
         </property>
        </widget>
       </item>
