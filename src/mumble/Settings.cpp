@@ -261,6 +261,7 @@ Settings::Settings() {
 	iJitterBufferSize = 1;
 	iFramesPerPacket = 2;
 	iNoiseSuppress = -30;
+    qsJackName = QLatin1String("mumble");
 
 	// Idle auto actions
 	iIdleTime = 5 * 60;

@@ -190,6 +190,8 @@ struct Settings {
 	int iTTSVolume, iTTSThreshold;
 	int iQuality, iMinLoudness, iVoiceHold, iJitterBufferSize;
 	int iNoiseSuppress;
+    QString qsJackName;
+
 
 	// Idle auto actions
 	unsigned int iIdleTime;

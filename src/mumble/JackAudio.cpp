@@ -101,7 +101,7 @@ JackAudioSystem::~JackAudioSystem() {
 
 void JackAudioSystem::init_jack()
 {
-        client = jack_client_open("mumble", JackNullOption, 0);
+        client = jack_client_open(g.s.qsJackName.toStdString().c_str(), JackNullOption, 0);
 
         if (client) {
                 in_port = jack_port_register(client, "input", JACK_DEFAULT_AUDIO_TYPE, JackPortIsInput, 0);

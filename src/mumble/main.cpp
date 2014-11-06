@@ -163,7 +163,9 @@ int main(int argc, char **argv) {
 			} else if (args.at(i) == QLatin1String("-m") || args.at(i) == QLatin1String("--multiple")) {
 				bAllowMultiple = true;
 			} else if (args.at(i) == QLatin1String("-n") || args.at(i) == QLatin1String("--noidentity")) {
-				g.s.bSuppressIdentity = true;
+			    g.s.bSuppressIdentity = true;
+            } else if (args.at(i) == QLatin1String("-j") || args.at(i) == QLatin1String("--jack")) {
+                g.s.qsJackName = QString(args.at(i+1));
 			} else {
 				QUrl u = QUrl::fromEncoded(args.at(i).toUtf8());
 				if (u.isValid() && (u.scheme() == QLatin1String("mumble"))) {
