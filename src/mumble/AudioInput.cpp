@@ -118,7 +118,7 @@ AudioInput::AudioInput() : opusBuffer(g.s.iFramesPerPacket * (SAMPLE_RATE / 100)
 		qWarning("Opus encoder set for Music (AUDIO)");
 	}
 
-	opus_encoder_ctl(opusState, OPUS_SET_VBR(0)); // CBR
+	opus_encoder_ctl(opusState, OPUS_SET_VBR(1)); // CBR
 #endif
 
 	qWarning("AudioInput: %d bits/s, %d hz, %d sample", iAudioQuality, iSampleRate, iFrameSize);
