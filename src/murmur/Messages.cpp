@@ -532,7 +532,7 @@ void Server::msgUserState(ServerUser *uSource, MumbleProto::UserState &msg) {
 		}
 	}
 
-	if (msg.has_mute() || msg.has_deaf() || msg.has_suppress() || msg.has_priority_speaker()) {
+	if (msg.has_mute() || msg.has_deaf() || msg.has_suppress()) {
 		if (pDstServerUser->iId == 0) {
 			PERM_DENIED_TYPE(SuperUser);
 			return;
@@ -541,11 +541,26 @@ void Server::msgUserState(ServerUser *uSource, MumbleProto::UserState &msg) {
 			PERM_DENIED_TYPE(TemporaryChannel);
 			return;
 		}
-		if (! hasPermission(uSource, pDstServerUser->cChannel, ChanACL::MuteDeafen) || msg.suppress()) {
+		if (! hasPermission(uSource, pDstServerUser->cChannel, ChanACL::MuteDeafen) || msg.priority_speaker()) {
 			PERM_DENIED(uSource, pDstServerUser->cChannel, ChanACL::MuteDeafen);
 			return;
 		}
 	}
+	
+	if (msg.has_priority_speaker()) {
+                if (pDstServerUser->iId == 0) {
+			PERM_DENIED_TYPE(SuperUser);
+			return;
+		}
+		if (uSource->cChannel->bTemporary) {
+			PERM_DENIED_TYPE(TemporaryChannel);
+			return;
+		}
+		if (! hasPermission(uSource, pDstServerUser->cChannel, ChanACL::PrioritySpeaker) || msg.suppress()) {
+			PERM_DENIED(uSource, pDstServerUser->cChannel, ChanACL::PrioritySpeaker);
+			return;
+		}
+        }
 
 	QString comment;
 

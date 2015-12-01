@@ -140,7 +140,7 @@ QFlags<ChanACL::Perm> ChanACL::effectivePermissions(ServerUser *p, Channel *chan
 	}
 
 	if (granted & Write) {
-		granted |= Traverse|Enter|MuteDeafen|Move|MakeChannel|LinkChannel|TextMessage|MakeTempChannel;
+		granted |= Traverse|Enter|MuteDeafen|Move|MakeChannel|LinkChannel|TextMessage|MakeTempChannel|PrioritySpeaker;
 		if (chan->iId == 0)
 			granted |= Kick|Ban|Register|SelfRegister;
 	}
@@ -182,6 +182,8 @@ QString ChanACL::whatsThis(Perm p) {
 		case MuteDeafen:
 			return tr("This represents the permission to mute and deafen other users. Once muted, a user will stay muted "
 			          "until he is unmuted by another privileged user or reconnects to the server.");
+                case PrioritySpeaker:
+                        return tr("This represents the permission to give or remove priority speaker status to other users or to yourself.");
 		case Move:
 			return tr("This represents the permission to move a user to another channel or kick him from the server. To actually "
 			          "move the user, either the moving user must have Move privileges in the destination channel, or "
@@ -240,6 +242,8 @@ QString ChanACL::permName(Perm p) {
 			return tr("Whisper");
 		case MuteDeafen:
 			return tr("Mute/Deafen");
+                case PrioritySpeaker:
+                        return tr("Priority speaker");
 		case Move:
 			return tr("Move");
 		case MakeChannel:
