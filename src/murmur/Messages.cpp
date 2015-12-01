@@ -541,7 +541,7 @@ void Server::msgUserState(ServerUser *uSource, MumbleProto::UserState &msg) {
 			PERM_DENIED_TYPE(TemporaryChannel);
 			return;
 		}
-		if (! hasPermission(uSource, pDstServerUser->cChannel, ChanACL::MuteDeafen) || msg.priority_speaker()) {
+		if (! hasPermission(uSource, pDstServerUser->cChannel, ChanACL::MuteDeafen) || msg.suppress()) {
 			PERM_DENIED(uSource, pDstServerUser->cChannel, ChanACL::MuteDeafen);
 			return;
 		}
@@ -556,7 +556,7 @@ void Server::msgUserState(ServerUser *uSource, MumbleProto::UserState &msg) {
 			PERM_DENIED_TYPE(TemporaryChannel);
 			return;
 		}
-		if (! hasPermission(uSource, pDstServerUser->cChannel, ChanACL::PrioritySpeaker) || msg.suppress()) {
+		if (! hasPermission(uSource, pDstServerUser->cChannel, ChanACL::PrioritySpeaker) || msg.priority_speaker()) {
 			PERM_DENIED(uSource, pDstServerUser->cChannel, ChanACL::PrioritySpeaker);
 			return;
 		}
